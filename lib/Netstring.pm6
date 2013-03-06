@@ -32,11 +32,12 @@ multi to-netstring-buf (Buf $buf --> Buf)
   return $bytes ~ $colon ~ $buf ~ $comma;
 }
 
-sub read-netstring (IO $in --> Buf) is export
+sub read-netstring (IO::Socket $in --> Buf) is export
 {
   my Str $len = '';
-  for $in.read(1) -> $byte
+  loop
   {
+    my $byte = $in.read(1);
     my $str = $byte.decode;
     if $str eq ':' { last; }
     elsif $str ~~ /^ <[0..9]> $/
@@ -50,9 +51,11 @@ sub read-netstring (IO $in --> Buf) is export
   }
   my $content = $in.read(+$len);
   my $terminator = $in.read(1);
-  if $terminator.decode ne ',' 
+  $terminator.=decode;
+  if $terminator ne ',' 
   { 
-    die "Missing or invalid netstring terminator." 
+    die "Missing or invalid netstring terminator: $terminator" 
   }
   return $content;
 }
+

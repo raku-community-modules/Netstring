@@ -3,7 +3,9 @@
 ## Introduction
 
 Work with netstrings. This currently supports generating netstrings, and
-parsing a netstring from an IO stream (such as a socket.)
+parsing a netstring from an IO::Socket (it would support further IO classes,
+except that the current Perl 6 implementations do not seem to have a more
+generic IO role.)
 
 ## Usage
 
@@ -27,7 +29,7 @@ parsing a netstring from an IO stream (such as a socket.)
 
 ```
 
-### Reading Netstring from IO
+### Reading Netstring from IO::Socket
 
 ```perl
   use Netstring;
