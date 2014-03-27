@@ -11,7 +11,7 @@ multi to-netstring (Str $str --> Str)
   return "$bytes:$str,";
 }
 
-multi to-netstring (Buf $buf --> Str)
+multi to-netstring (Blob $buf --> Str)
 {
   my $bytes = $buf.bytes;
   my $str = $buf.decode;
@@ -24,12 +24,12 @@ multi to-netstring-buf (Str $str --> Buf)
   to-netstring-buf($buf);
 }
 
-multi to-netstring-buf (Buf $buf --> Buf)
+multi to-netstring-buf (Blob $buf --> Buf)
 {
   my $bytes = $buf.bytes.Str.encode;
   my $colon = ':'.encode;
   my $comma = ','.encode;
-  return $bytes ~ $colon ~ $buf ~ $comma;
+  return Buf.new($bytes ~ $colon ~ $buf ~ $comma);
 }
 
 sub read-netstring (IO::Socket $in --> Buf) is export
