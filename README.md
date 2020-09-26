@@ -3,15 +3,13 @@
 ## Introduction
 
 Work with netstrings. This currently supports generating netstrings, and
-parsing a netstring from an IO::Socket (it would support further IO classes,
-except that the current Raku implementations do not seem to have a more
-generic IO role.)
+parsing a netstring from an [`IO::Socket`](https://docs.raku.org/type/IO::Socket).
 
 ## Usage
 
 ### Generating Netstrings
 
-```perl
+```Raku
   use Netstring;
 
   to-netstring("hello world!");
@@ -31,7 +29,7 @@ generic IO role.)
 
 ### Reading Netstring from IO::Socket
 
-```perl
+```Raku
   use Netstring;
 
   my $daemon = IO::Socket::INET.new(
