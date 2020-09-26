@@ -1,5 +1,7 @@
 # Netstring library for Raku
 
+[![Build Status](https://travis-ci.org/raku-community-modules/perl6-netstring.svg?branch=master)](https://travis-ci.org/raku-community-modules/perl6-netstring)
+
 ## Introduction
 
 Work with netstrings. This currently supports generating netstrings, and
