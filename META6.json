@@ -1,11 +1,15 @@
 {
-  "perl"        : "6.*",
-  "name"        : "Netstring",
-  "version"     : "0.0.1",
-  "description" : "A library for working with netstrings.",
-  "depends"     : [],
-  "provides"    : {
-    "Netstring" : "lib/Netstring.pm6"
-  },
-  "source-url"  : "git@github.com:raku-community-modules/raku-netstring.git"
+    "perl"        : "6.*",
+    "name"        : "Netstring",
+    "version"     : "0.0.1",
+    "authors" : [
+        "Timothy Totten"
+    ],
+    "auth"        : "github:raku-community-modules",
+    "description" : "A library for working with netstrings.",
+    "depends"     : [],
+    "provides"    : {
+        "Netstring" : "lib/Netstring.pm6"
+    },
+    "source-url"  : "https://github.com/raku-community-modules/raku-netstring.git"
 }
