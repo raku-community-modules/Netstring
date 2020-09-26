@@ -1,10 +1,10 @@
-# Netstring library for Perl 6
+# Netstring library for Raku
 
 ## Introduction
 
 Work with netstrings. This currently supports generating netstrings, and
 parsing a netstring from an IO::Socket (it would support further IO classes,
-except that the current Perl 6 implementations do not seem to have a more
+except that the current Raku implementations do not seem to have a more
 generic IO role.)
 
 ## Usage
@@ -51,7 +51,7 @@ generic IO role.)
 
     $client.write($strcontent.flip);
     ## sends "!dlrow olleh" back to the client.
-    
+
     $client.close();
   }
 
@@ -60,6 +60,8 @@ generic IO role.)
 ## Author 
 
 Timothy Totten, supernovus on #perl6, https://github.com/supernovus/
+
+Currently maintained by the Raku github community.
 
 ## License
 
