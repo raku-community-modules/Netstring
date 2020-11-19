@@ -11,5 +11,5 @@
     "provides"    : {
         "Netstring" : "lib/Netstring.pm6"
     },
-    "source-url"  : "https://github.com/raku-community-modules/raku-netstring.git"
+    "source-url"  : "https://github.com/raku-community-modules/Netstring.git"
 }
