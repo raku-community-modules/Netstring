@@ -1,5 +1,5 @@
 {
-  "auth": "github:raku-community-modules",
+  "auth": "zef:raku-community-modules",
   "authors": [
     "Timothy Totten"
   ],
