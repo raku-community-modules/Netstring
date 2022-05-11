@@ -3,7 +3,7 @@
 NAME
 ====
 
-Netstring - blah blah blah
+Netstring - A library for working with netstrings
 
 SYNOPSIS
 ========

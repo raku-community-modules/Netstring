@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "blah blah blah",
+  "description": "A library for working with netstrings",
   "license": "Artistic-2.0",
   "name": "Netstring",
   "perl": "6.*",

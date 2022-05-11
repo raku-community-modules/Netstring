@@ -25,4 +25,4 @@ jobs:
         with:
           raku-version: ${{ matrix.raku-version }}
       - name: Run Tests
-        run: zef build . && zef test .
+        run: zef test .
