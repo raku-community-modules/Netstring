@@ -1,69 +1,71 @@
-# Netstring library for Raku
+[![Actions Status](https://github.com/raku-community-modules/Netstring/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/Netstring/actions)
 
-[![Build Status](https://travis-ci.org/raku-community-modules/perl6-netstring.svg?branch=master)](https://travis-ci.org/raku-community-modules/perl6-netstring)
+NAME
+====
 
-## Introduction
+Netstring - blah blah blah
 
-Work with netstrings. This currently supports generating netstrings, and
-parsing a netstring from an [`IO::Socket`](https://docs.raku.org/type/IO::Socket).
+SYNOPSIS
+========
 
-## Usage
+```raku
+use Netstring;
 
-### Generating Netstrings
+say to-netstring("hello world!"); # 12:hello world!,
 
-```Raku
-  use Netstring;
+my $b = Buf.new(0x68,0x65,0x6c,0x6c,0x6f,0x20,0x77,0x6f,0x72,0x6c,0x64,0x21);
+say to-netstring($b);             # 12:hello world!,
 
-  to-netstring("hello world!");
-  ## returns "12:hello world!,"
+to-netstring-buf("hello world!");
+# returns Buf:0x<31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c>
 
-  my $b = Buf.new(0x68,0x65,0x6c,0x6c,0x6f,0x20,0x77,0x6f,0x72,0x6c,0x64,0x21);
-  to-netstring($b);
-  ## returns "12:hello world!,";
-
-  to-netstring-buf("hello world!");
-  ## returns Buf:0x<31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c>
-
-  to-netstring-buf($b);
-  ## returns Buf:0x<31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c>
-
+to-netstring-buf($b);
+# returns Buf:0x<31 32 3a 68 65 6c 6c 6f 20 77 6f 72 6c 64 21 2c>
 ```
 
-### Reading Netstring from IO::Socket
+DESCRIPTION
+===========
 
-```Raku
-  use Netstring;
+Work with netstrings. This currently supports generating netstrings, and parsing a netstring from an [IO::Socket](https://docs.raku.org/type/IO::Socket).
 
-  my $daemon = IO::Socket::INET.new(
-    :localhost<localhost>,
-    :localport(42),
-    :listen
-  );
+READING FROM A SOCKET
+=====================
 
-  while my $client = $daemon.accept()
-  {
-    ## The client sends "12:hello world!," as a stream of bytes.
+```raku
+use Netstring;
+
+my $daemon = IO::Socket::INET.new(
+  :localhost<localhost>,
+  :localport(42),
+  :listen
+);
+
+while my $client = $daemon.accept() {
+    # The client sends "12:hello world!," as a stream of bytes.
     my $rawcontent = read-netstring($client);
     my $strcontent = $rawcontent.decode;
 
     say "The client said: $strcontent";
-    ## prints "The client said: hello world!"
+    # prints "The client said: hello world!"
 
     $client.write($strcontent.flip);
-    ## sends "!dlrow olleh" back to the client.
+    # sends "!dlrow olleh" back to the client.
 
     $client.close();
-  }
-
+}
 ```
 
-## Author 
+AUTHOR
+======
 
-Timothy Totten, supernovus on #perl6, https://github.com/supernovus/
+Timothy Totten
 
-Currently maintained by the Raku github community.
+COPYRIGHT AND LICENSE
+=====================
 
-## License
+Copyright 2012 - 2016 Timothy Totten
 
-Artistic License 2.0
+Copyright 2017 - 2022 Raku Community
+
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
