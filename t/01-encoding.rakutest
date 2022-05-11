@@ -1,7 +1,3 @@
-use v6;
-
-#use lib 'lib';
-
 use Test;
 use Netstring;
 
@@ -20,3 +16,4 @@ is to-netstring($test_buf), $wanted_str, 'to-netstring(Buf)';
 ok to-netstring-buf($test_str) == $wanted_buf, 'to-netstring-buf(Str)';
 ok to-netstring-buf($test_buf) == $wanted_buf, 'to-netstring-buf(Buf)';
 
+# vim: expandtab shiftwidth=4

@@ -2,5 +2,9 @@ Revision history for Netstring
 
 {{$NEXT}}
 
+0.0.3  2022-05-11T12:14:48+02:00
+    - Add tag
+    - Cleanup test files further
+
 0.0.2  2022-05-11T12:10:29+02:00
     - First version on the zef ecosystem
