@@ -3,24 +3,22 @@
   "authors": [
     "Timothy Totten"
   ],
-  "build-depends": [
-  ],
   "depends": [
   ],
   "description": "A library for working with netstrings",
   "license": "Artistic-2.0",
   "name": "Netstring",
-  "perl": "6.*",
   "provides": {
     "Netstring": "lib/Netstring.rakumod"
   },
-  "resources": [
-  ],
-  "source-url": "https://github.com/raku-community-modules/Netstring.git",
+  "raku": "6.*",
+  "support": {
+    "bugtracker": "https://github.com/raku-community-modules/Netstring/issues",
+    "email": "community@raku.org",
+    "source": "https://github.com/raku-community-modules/Netstring.git"
+  },
   "tags": [
     "NETSTRING"
   ],
-  "test-depends": [
-  ],
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
