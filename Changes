@@ -1,6 +1,8 @@
 Revision history for Netstring
 
 {{$NEXT}}
+
+0.0.4  2026-01-17T14:54:53+01:00
     - Modernize doc and META6
     - Add preliminary coverage testing
     - Update copyright year
